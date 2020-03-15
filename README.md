@@ -1,5 +1,7 @@
 # Programın tüm ayarları SampleScene in içinde ki Handler nesnesi üzerinde yapılmaktadır.
 
+# Q Table epoch sınırına ulaştığında bastırılacaktır.
+
 ## Maze Length
 
 Sınırları 2<=X<=N şeklindedir.
