@@ -23,9 +23,12 @@ public class q_learner : MonoBehaviour
     bool flag = false;
     bool lilFlag = false;
     bool lastFlag = true;
+    int[,] usedTable;
     //datas
     int[,] rewardTable;
     float[,] qTable;
+    
+    float biggestQVal=float.MinValue;
     int tableLength;
     maze dungeon;
     List<int> indices = new List<int>();
@@ -44,7 +47,7 @@ public class q_learner : MonoBehaviour
 
         rewardTable = new int[tableLength, tableLength];
         qTable = new float[tableLength, tableLength];
-
+        usedTable = new int[tableLength, tableLength];
         //creates reward table
         for (int i = 0; i < tableLength; i++)
         {
@@ -95,21 +98,85 @@ public class q_learner : MonoBehaviour
         //find coordinates of indices
         if (dungeon.getMaze_length() % 2 == 0)
         {
-            target_x -= ((dungeon.getMaze_length() / 2) - 0.5f);
-            target_y += ((dungeon.getMaze_length() / 2) - 0.5f);
+            target_x -= ((dungeon.getMaze_length() / 2) - 0.5f)*16;
+            target_y += ((dungeon.getMaze_length() / 2) - 0.5f)*16;
         }
         else
         {
-            target_x -= Mathf.Floor(dungeon.getMaze_length() / 2);
-            target_y += Mathf.Floor(dungeon.getMaze_length() / 2);
+            target_x -= Mathf.Floor(dungeon.getMaze_length() / 2)*16;
+            target_y += Mathf.Floor(dungeon.getMaze_length() / 2)*16;
         }
-        target_x += target_j;
-        target_y -= target_i;
+        target_x += target_j*16;
+        target_y -= target_i*16;
         //assign target
         if (target_i == dungeon.end_i && target_j == dungeon.end_j)
         {
             flag = true;
             epochCounter++;
+        }
+    }
+
+    Color colorFunction(int usedTime)
+    {
+        return new Color(usedTime*1.0f/dungeon.getMaze_length(), 0f, 1f/usedTime, usedTime * 2.0f / (dungeon.getMaze_length()/2));
+    }
+    //Update visual represantation of Q Table in scene
+    void updateVisualQTable(int cur,int to)
+    {
+        if(usedTable[cur, to]<dungeon.getMaze_length())
+            usedTable[cur, to]++;
+        int mazeLength = dungeon.getMaze_length();
+        maze_generator mg = this.gameObject.GetComponent<maze_generator>();
+        GameObject[][] dungeonObjects = mg.Get_DungeonObjects;
+        int cur_j = cur % mazeLength;
+        int cur_i = (cur - cur_j) / mazeLength;
+        if (cur-mazeLength==to) //north
+        {
+            Transform cell = dungeonObjects[cur_i][cur_j].transform;
+            for (int i=0;i< cell.childCount;i++)
+            {
+                if(cell.GetChild(i).tag=="NM")
+                {
+                    cell.GetChild(i).GetComponent<SpriteRenderer>().color = colorFunction(usedTable[cur, to]);
+                    break;
+                }
+            }
+        }
+        else if(cur +1 == to) //east
+        {
+            Transform cell = dungeonObjects[cur_i][cur_j].transform;
+            for (int i = 0; i < cell.childCount; i++)
+            {
+                if (cell.GetChild(i).tag == "EM")
+                {
+                    cell.GetChild(i).GetComponent<SpriteRenderer>().color = colorFunction(usedTable[cur, to]);
+                    break;
+                }
+            }
+        }
+        else if (cur + mazeLength == to) //south
+        {
+            Transform cell = dungeonObjects[cur_i][cur_j].transform;
+            for (int i = 0; i < cell.childCount; i++)
+            {
+                if (cell.GetChild(i).tag == "SM")
+                {
+                    cell.GetChild(i).GetComponent<SpriteRenderer>().color = colorFunction(usedTable[cur, to]);
+                    break;
+                }
+            }
+        }
+        else if (cur - 1 == to) //west
+        {
+            Transform cell = dungeonObjects[cur_i][cur_j].transform;
+            for (int i = 0; i < cell.childCount; i++)
+            {
+                if (cell.GetChild(i).tag == "WM")
+                {
+                    cell.GetChild(i).GetComponent<SpriteRenderer>().color = colorFunction(usedTable[cur, to]); ;
+                    break;
+                }
+            }
         }
     }
 
@@ -189,6 +256,10 @@ public class q_learner : MonoBehaviour
             }
             qTable[curVertice, maxIndex] = qTable[curVertice, maxIndex] + learning_rate * (rewardTable[curVertice, maxIndex] + discount_factor * maxNextVal - qTable[curVertice, maxIndex]);
         }
+        if (qTable[curVertice, maxIndex] > biggestQVal)
+            biggestQVal = qTable[curVertice, maxIndex];
+        if(qTable[curVertice, maxIndex]>0)
+            updateVisualQTable(curVertice, maxIndex);
         go(maxIndex);
 
 
@@ -263,7 +334,7 @@ public class q_learner : MonoBehaviour
             if (lilFlag)//if our character decided to move then move it on screen
             {
                 float distCovered = Time.deltaTime * step_per_second;
-                float fractionOfJourney = distCovered / Vector3.Distance(character.transform.position, new Vector3(target_x, target_y, 0));
+                float fractionOfJourney = distCovered / Vector3.Distance(character.transform.position, new Vector3(target_x, target_y, 0))*16;
                 character.transform.position = Vector3.Lerp(character.transform.position, new Vector3(target_x, target_y, 0), fractionOfJourney);
             }
             if (timer <= 0 && flag)//when the character reaches end

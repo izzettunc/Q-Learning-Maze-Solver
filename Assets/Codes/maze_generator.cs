@@ -148,10 +148,20 @@ public class maze_generator : MonoBehaviour
     public GameObject[] roomArray;
     public GameObject[] roomArray_end;
     public GameObject[] roomArray_start;
+    public GameObject[] markers;
     public bool select_random_start_and_end;
     //datas
     public int mazeLength;
     private maze dungeon;
+    private GameObject[][] dungeonObjects;
+
+    public GameObject[][] Get_DungeonObjects
+    {
+        get
+        {
+            return dungeonObjects;
+        }
+    }
 
     public maze Get_Dungeon
     {
@@ -221,13 +231,13 @@ public class maze_generator : MonoBehaviour
         Vector3 startPoint = generator.transform.position;
         if (mazeLength % 2 == 0)
         {
-            startPoint.x -= ((mazeLength / 2) - 0.5f);
-            startPoint.y += ((mazeLength / 2) - 0.5f);
+            startPoint.x -= ((mazeLength / 2) - 0.5f)*16;
+            startPoint.y += ((mazeLength / 2) - 0.5f)*16;
         }
         else
         {
-            startPoint.x -= Mathf.Floor(mazeLength / 2);
-            startPoint.y += Mathf.Floor(mazeLength / 2);
+            startPoint.x -= Mathf.Floor(mazeLength / 2)*16;
+            startPoint.y += Mathf.Floor(mazeLength / 2)*16;
         }
         int startIndex_x, startIndex_y, endIndex_x, endIndex_y;
         //Select random start and end point or make them fixed to the most left-up and the most right-down
@@ -259,15 +269,15 @@ public class maze_generator : MonoBehaviour
             for (int j = 0; j < mazeLength; j++)
             {
                 Vector3 point = startPoint;
-                point.x += j;
-                point.y -= i;
+                point.x += j * 16;
+                point.y -= i * 16;
                 cell room = dungeon.getCells()[i][j];
                 int index = 0;
                 bool[] doors = room.getDoors();
-                if (doors[0]) index += 8;
-                if (doors[1]) index += 4;
-                if (doors[2]) index += 2;
-                if (doors[3]) index += 1;
+                if (doors[0]) { index += 8; }
+                if (doors[1]) { index += 4; }
+                if (doors[2]) { index += 2; }
+                if (doors[3]) { index += 1; }
                 GameObject newRoom;
                 if (i == startIndex_y && j == startIndex_x)
                     newRoom = Instantiate(roomArray_start[index], point, Quaternion.identity) as GameObject;
@@ -276,6 +286,12 @@ public class maze_generator : MonoBehaviour
                 else
                     newRoom = Instantiate(roomArray[index], point, Quaternion.identity) as GameObject;
                 newRoom.transform.SetParent(mazeObject);
+                GameObject marker;
+                if (doors[0]) { marker = Instantiate(markers[directions.north], newRoom.transform); }
+                if (doors[1]) { marker = Instantiate(markers[directions.east], newRoom.transform); }
+                if (doors[2]) { marker = Instantiate(markers[directions.south], newRoom.transform); }
+                if (doors[3]) { marker = Instantiate(markers[directions.west], newRoom.transform); }
+                dungeonObjects[i][j] = newRoom;
             }
         }
     }
@@ -284,6 +300,11 @@ public class maze_generator : MonoBehaviour
     void Start()
     {
         dungeon = generate();
+        dungeonObjects = new GameObject[dungeon.getMaze_length()][];
+        for (int i=0;i<dungeon.getMaze_length();i++)
+        {
+            dungeonObjects[i] = new GameObject[dungeon.getMaze_length()];
+        }
         instantiate_maze(dungeon);
     }
 

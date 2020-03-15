@@ -102,5 +102,10 @@ MonoBehaviour:
   - {fileID: 1715194074341518, guid: 77f3a640b84a4694787132a0addb15be, type: 2}
   - {fileID: 1054237898079974, guid: 7e32161469efae5499c3feb8a9b4927d, type: 2}
   - {fileID: 1444790310365448, guid: dcbc4ea415270ec43b0db48b6e6a49f3, type: 2}
+  markers:
+  - {fileID: 1940018014429278, guid: e87dbeb0f2a1c6e4e9866d1a58b70713, type: 2}
+  - {fileID: 1459655794154000, guid: 17734d6a2c5cc994c84b51a7edad32d7, type: 2}
+  - {fileID: 1962772137410848, guid: 3beb1f72d93e12b47b6ffc46de70f0ed, type: 2}
+  - {fileID: 1052772625845180, guid: 88cae6100bc7595468b354edb3a8735a, type: 2}
   select_random_start_and_end: 0
   mazeLength: 3

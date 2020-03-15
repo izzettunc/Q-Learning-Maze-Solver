@@ -152,6 +152,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114011316755583588, guid: 9acb2f7fef9f08e43900503e66d18d4e,
+        type: 2}
+      propertyPath: stepPerSecond
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011316755583588, guid: 9acb2f7fef9f08e43900503e66d18d4e,
+        type: 2}
+      propertyPath: mazeLength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011316755583588, guid: 9acb2f7fef9f08e43900503e66d18d4e,
+        type: 2}
+      propertyPath: waitingTimeAtTheEnd
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011316755583588, guid: 9acb2f7fef9f08e43900503e66d18d4e,
+        type: 2}
+      propertyPath: smartChoosing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9acb2f7fef9f08e43900503e66d18d4e, type: 2}
   m_IsPrefabAsset: 0
