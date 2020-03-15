@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1460193736089732}
+  m_IsPrefabAsset: 1
+--- !u!1 &1460193736089732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4713506626470550}
+  - component: {fileID: 114391129846138916}
+  m_Layer: 0
+  m_Name: Maze Generator
+  m_TagString: Mg
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4713506626470550
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460193736089732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114391129846138916
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460193736089732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c1ff0a940c79c4bba1c3c333a0aedb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomArray:
+  - {fileID: 1995780351557242, guid: b9f4fd33bb6ea4e47844d18afd1e3607, type: 2}
+  - {fileID: 1318238310189292, guid: 782c7f99802b71842965a3bd6ba54ddf, type: 2}
+  - {fileID: 1676275576348106, guid: e3cf9eb5e5a1b8242905cfec0949b0fa, type: 2}
+  - {fileID: 1000390076220826, guid: 47ace86c1d07c3840aaed2ac60560ce9, type: 2}
+  - {fileID: 1922192087667292, guid: 5fae10069f7d86b4dbd0205bc7ee3f14, type: 2}
+  - {fileID: 1031147488549100, guid: ea7547cfcc32c114286fe84503c0f030, type: 2}
+  - {fileID: 1439751736000372, guid: a1347a19ccd4f08478672a7153da4255, type: 2}
+  - {fileID: 1283374874101276, guid: d224311a7cc74704583db214586f935a, type: 2}
+  - {fileID: 1928944277617596, guid: c3adcb7a89e607242922f24afc09b738, type: 2}
+  - {fileID: 1939514389883990, guid: b41d37af20cdcf04792543d3d85ce91d, type: 2}
+  - {fileID: 1159579096469644, guid: dce8996ed93cbbf43b0c77b0ad12d324, type: 2}
+  - {fileID: 1775168112615292, guid: 7a5003416fb5f3245924b540d44daaf0, type: 2}
+  - {fileID: 1064386987211150, guid: 4de6159bfcbb0844bb73137aacb1efda, type: 2}
+  - {fileID: 1696290745154628, guid: b5b2b28992094fc4986234d2a0b764bd, type: 2}
+  - {fileID: 1214403184616328, guid: a60905cf21c3f0540acb4ab6a60cd087, type: 2}
+  - {fileID: 1726277459761652, guid: 17caef5bfe622204295c57463f3cf5ac, type: 2}
+  roomArray_end:
+  - {fileID: 1378413227978634, guid: 8ee5d73c756c8174f9c22d64478fe647, type: 2}
+  - {fileID: 1584780386666568, guid: 2e1d97b79f1e8514fb281faa8925d512, type: 2}
+  - {fileID: 1704353078950018, guid: ee30cd12f278f424cad6d4a824e21959, type: 2}
+  - {fileID: 1099212746549656, guid: a288fb0e7c86ed14e9dd01588aab4f08, type: 2}
+  - {fileID: 1731276934825326, guid: ac3b1cee779356747aa387254cbe85ab, type: 2}
+  - {fileID: 1428042116192838, guid: 966e2236cc653b44c91495fcce83db58, type: 2}
+  - {fileID: 1215061974577576, guid: 1fd1e3432c056b545b0ca29f72d1c9d4, type: 2}
+  - {fileID: 1517738174188356, guid: e9ad470e1e1e8e9408e0fa7e961ac01e, type: 2}
+  - {fileID: 1293539975673978, guid: 4425b71996abe7640b3db0342e44c11b, type: 2}
+  - {fileID: 1916976310060660, guid: b2ad52689d2acb24e9d97bef0ea82dcf, type: 2}
+  - {fileID: 1602896135189068, guid: 85075697aa9edd04db1b3ced40c7addf, type: 2}
+  - {fileID: 1483448433614506, guid: fae2f5474753dfc4baa22a3b4dcbaf8a, type: 2}
+  - {fileID: 1910527064052948, guid: cae67da7953d68a40bc06a7b2512040f, type: 2}
+  - {fileID: 1270836246128458, guid: a69f80295d5220a4f85b20a6a31a1c54, type: 2}
+  - {fileID: 1036814897023490, guid: cd78f334fdd2ee641b4c505b44815e89, type: 2}
+  - {fileID: 1420579517354356, guid: 59340ea3065bdb144837600b274ab185, type: 2}
+  roomArray_start:
+  - {fileID: 1588266696656258, guid: 47ea6bdd38fc92f48ba3c21840d732fb, type: 2}
+  - {fileID: 1873625552735064, guid: 948ac89820e24714996341391eb0b2d9, type: 2}
+  - {fileID: 1849597033548764, guid: 2c1d0631c5c92b649a04c02969e2b03c, type: 2}
+  - {fileID: 1973812569856974, guid: 186f88eb78ea9cb4a8c354344e27c58c, type: 2}
+  - {fileID: 1891640089917104, guid: 32fa021ff11720b44bfb790359a3ec60, type: 2}
+  - {fileID: 1839730926712094, guid: 4367115a1d8c8bd43a7e72bf362b8e16, type: 2}
+  - {fileID: 1967974836948438, guid: 4b2c1b82e1767324bbb6f9008ca88806, type: 2}
+  - {fileID: 1213222668331096, guid: 7b826e60b2674fe4f813649e5582e6ec, type: 2}
+  - {fileID: 1574550448508900, guid: 1f2ea69b0b9f3994d8d2111b0ec48a08, type: 2}
+  - {fileID: 1313011646330086, guid: e48a2df6508f44844b64a7c9ab29cae9, type: 2}
+  - {fileID: 1751735007332624, guid: 7aa53ef707ea74c449d765568a359403, type: 2}
+  - {fileID: 1433657473809994, guid: 70908f257d70e9244b3feab132915a9f, type: 2}
+  - {fileID: 1108777569249902, guid: c8c2c09c668d59343a4f68b220a6971e, type: 2}
+  - {fileID: 1715194074341518, guid: 77f3a640b84a4694787132a0addb15be, type: 2}
+  - {fileID: 1054237898079974, guid: 7e32161469efae5499c3feb8a9b4927d, type: 2}
+  - {fileID: 1444790310365448, guid: dcbc4ea415270ec43b0db48b6e6a49f3, type: 2}
+  select_random_start_and_end: 0
+  mazeLength: 3
