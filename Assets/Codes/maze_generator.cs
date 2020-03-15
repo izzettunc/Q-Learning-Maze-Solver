@@ -262,8 +262,8 @@ public class maze_generator : MonoBehaviour
         dungeon.start_j = startIndex_x;
         dungeon.end_i = endIndex_y;
         dungeon.end_j = endIndex_x;
-        dungeon.start_x = startPoint.x + dungeon.start_j;
-        dungeon.start_y = startPoint.y - dungeon.start_i;
+        dungeon.start_x = startPoint.x + dungeon.start_j * 16;
+        dungeon.start_y = startPoint.y - dungeon.start_i * 16;
         for (int i = 0; i < mazeLength; i++)
         {
             for (int j = 0; j < mazeLength; j++)

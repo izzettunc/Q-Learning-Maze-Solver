@@ -51,18 +51,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c96244805d0e74408e0befe2a61ff12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeLength: 6
-  selectRandomStartAndEnd: 0
-  stepPerSecond: 10
-  waitingTimeAtTheEnd: 2
+  mazeLength: 5
+  selectRandomStartAndEnd: 1
+  stepPerSecond: 50
+  waitingTimeAtTheEnd: 0.25
   reward: 100
   learningRate: 0.1
   discountFactor: 1
   epoch: -1
   stopLearningAt: -1
-  smartChoosing: 0
+  smartChoosing: 1
   mazeGenerator: {fileID: 1460193736089732, guid: 11316b9fbf5db85408d702dada8f0a91,
     type: 2}
-  cameraObject: {fileID: 1155773941762148, guid: 3d43f235c4259cf49902f399c00b2d7f,
+  cameraObject: {fileID: 20694976738559906, guid: 3d43f235c4259cf49902f399c00b2d7f,
     type: 2}
   character: {fileID: 1927272032587496, guid: 5d6b90f1c0e7be044a3c708ffda4a326, type: 2}

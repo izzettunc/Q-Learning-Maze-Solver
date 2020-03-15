@@ -2,6 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class parameters
+{
+    public static int mazeLength;
+    public static bool selectRandomStartAndEnd;
+    public static float stepPerSecond;
+    public static float waitingTimeAtTheEnd;
+    public static int reward;
+    public static float learningRate;
+    public static float discountFactor;
+    public static int epoch;
+    public static int stopLearningAt;
+    public static bool smartChoosing;
+}
 public class handler : MonoBehaviour
 {
     //settings
@@ -16,11 +29,21 @@ public class handler : MonoBehaviour
     public int stopLearningAt;
     public bool smartChoosing;
     public GameObject mazeGenerator;
-    public GameObject cameraObject;
+    public Camera cameraObject;
     public GameObject character;
     // Use this for initialization
     void Start()
     {
+        this.mazeLength = parameters.mazeLength;
+        this.selectRandomStartAndEnd = parameters.selectRandomStartAndEnd;
+        this.stepPerSecond = parameters.stepPerSecond;
+        this.waitingTimeAtTheEnd = parameters.waitingTimeAtTheEnd;
+        this.reward = parameters.reward;
+        this.learningRate = parameters.learningRate;
+        this.discountFactor = parameters.discountFactor;
+        this.epoch = parameters.epoch;
+        this.stopLearningAt = parameters.stopLearningAt;
+        this.smartChoosing = parameters.smartChoosing;
         //set the random seed
         Random.InitState((int)System.DateTime.Now.Ticks);
         this.gameObject.SetActive(false);
@@ -34,7 +57,9 @@ public class handler : MonoBehaviour
         //creates maze and stop
         this.gameObject.SetActive(false);
         //initializing of camera
-        Instantiate(cameraObject, new Vector3(0, 0, -10), Quaternion.identity);
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>().worldCamera = Instantiate(cameraObject, new Vector3(0, 0, -10), Quaternion.identity);
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<Canvas>().planeDistance = 5;
         //initializing of Q Learner instance
         q_learner ql = generator.AddComponent<q_learner>();
         //assigning of some settings

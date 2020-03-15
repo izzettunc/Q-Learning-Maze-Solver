@@ -9,6 +9,7 @@ TagManager:
   - SM
   - EM
   - WM
+  - Canvas
   layers:
   - Default
   - TransparentFX
