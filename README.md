@@ -21,7 +21,6 @@
 * [About the Project](#about-the-project)
 * [Getting Started](#getting-started)
   * [Installation](#installation)
-  * [Important Notice](#important-notice)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [License](#license)
