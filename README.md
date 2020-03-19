@@ -34,7 +34,7 @@
 
 ![Product Name Screen Shot][product-screenshot]
 
-This project made as a class assignment.It's purpose basically make the computer learn how to solve the maze with Q-Learning algorithm.
+This project made as a class assignment. It's purpose basically make the computer learn how to solve the maze with Q-Learning algorithm. It coded on unity with c#.
 
 **Features:**
 
