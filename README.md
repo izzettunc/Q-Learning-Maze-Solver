@@ -6,6 +6,8 @@
   <p align="center">
     A maze solver simulation using Q Learning algorithm.
     <br />
+  <a href="https://github.com/izzettunc/Q-Learning-Maze-Solver/tree/master/Assets/Codes/">Codes</a>
+    <br />
   <a href="https://izzettunc.github.io/Q-Learning-Maze-Solver/">Demo</a>
     <br />
     <a href="https://github.com/izzettunc/Q-Learning-Maze-Solver/issues">Report Bug</a>
